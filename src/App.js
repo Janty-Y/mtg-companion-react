@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+import PlayerState from './context/PlayerState';
+import Header from './components/Header';
+import LifeTracker from './components/LifeTracker';
+import PlayerInfo from './components/PlayerInfo';
+import Poison from './components/Poison';
+import LifeCalculator from './components/LifeCalculator';
+import Timer from './components/Timer';
+import TimeStopper from './components/TimeStopper';
+import Results from './components/Results';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container-fluid main '>
+      <PlayerState>
+        <Header />
+        <PlayerInfo />
+        <LifeTracker />
+        <Poison />
+        <LifeCalculator />
+        <div className='row bottom'>
+          <Timer />
+          <Results />
+        </div>
+        <TimeStopper />
+      </PlayerState>
     </div>
   );
 }

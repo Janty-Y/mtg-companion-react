@@ -1,0 +1,11 @@
+export const SET_PLAYERS = 'SET_PLAYERS';
+export const UPDATE_POISON = 'UPDATE_POISON';
+export const UPDATE_LIFE = 'UPDATE_LIFE';
+export const UPDATE_LIFE_ARRAY = 'UPDATE_LIFE_ARRAY';
+export const UPDATE_CHECKS = 'UPDATE_CHECKS';
+export const RESET_GAME = 'RESET_GAME';
+export const CHECK_FOR_WINNER = 'CHECK_FOR_WINNER';
+export const TOGGLE_TIMER = 'TOGGLE_TIMER';
+export const RESET_TIMER = 'RESET_TIMER';
+export const UPDATE_TIMER = 'UPDATE_TIMER';
+export const LOG_SAVED = 'LOG_SAVED';
