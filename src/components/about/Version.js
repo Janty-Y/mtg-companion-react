@@ -31,7 +31,6 @@ const Version = () => {
             Game result area below the timer no longer expands when a winner is
             declared, and instead uses a dedicated area
           </li>
-          <li>Spacing around Heart buttons was tightened.</li>
         </ul>
       </ul>
       <h2>Version 1.0</h2>

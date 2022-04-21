@@ -121,6 +121,7 @@ div.life {
 
 .heart {
   font-size: 2.5rem;
+  padding: 15px;
   color: rgb(206, 82, 82);
 }
 
@@ -206,7 +207,7 @@ div.life {
   }
   .heart {
     font-size: 1.5rem;
-    padding: 5px;
+    padding: 8px;
   }
   .game-time {
     font-size: 1.8rem;
