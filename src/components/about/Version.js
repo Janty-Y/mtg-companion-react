@@ -5,6 +5,15 @@ const Version = () => {
     <div>
       <h2>Version 2.0</h2>
       <ul>
+        <li>
+          <a
+            href=' https://github.com/Janty-Y/mtg-companion-react'
+            target='blank'
+          >
+            Source code for Version 2.0
+          </a>
+        </li>
+
         <li>This app was converted to a React app in version 2.0</li>
         <li>
           Functionality remains consistent with version 1.0 with one small
