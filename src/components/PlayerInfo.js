@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+import { Col } from 'react-bootstrap';
 import PlayerContext from '../context/playerContext';
+import { StyledPlayerName } from './styles/PlayerName.styled';
 
 const PlayerInfo = () => {
   const playerContext = useContext(PlayerContext);
@@ -7,18 +9,18 @@ const PlayerInfo = () => {
   const { p1, p2 } = playerContext;
 
   return (
-    <div className='row player-title'>
-      <div className='col player'>
+    <StyledPlayerName>
+      <Col>
         {p1.playerName.toUpperCase()}
         <hr />
         {p1.deckName.toUpperCase()}
-      </div>
-      <div className='col player p2-info'>
+      </Col>
+      <Col>
         {p2.playerName.toUpperCase()}
         <hr />
         {p2.deckName.toUpperCase()}
-      </div>
-    </div>
+      </Col>
+    </StyledPlayerName>
   );
 };
 

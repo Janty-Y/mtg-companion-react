@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import PlayerContext from '../context/playerContext';
+import { StyledLifeCalculator } from './styles/LifeCalculator.styled';
 
 const LifeCalculator = () => {
   const { updateLife, updateLifeArray, updateChecks, p1, p2, checkForWinner } =
@@ -26,7 +27,7 @@ const LifeCalculator = () => {
   }, [p1, p2]);
 
   return (
-    <>
+    <StyledLifeCalculator>
       <div className='row'>
         <div className='col life-calc '>
           <div className='row cannot-checks'>
@@ -135,7 +136,7 @@ const LifeCalculator = () => {
           </div>
         </div>
       </div>
-    </>
+    </StyledLifeCalculator>
   );
 };
 

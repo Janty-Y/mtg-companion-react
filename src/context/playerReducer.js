@@ -1,4 +1,9 @@
 import {
+  updateLifeArrayHelper,
+  updateLifeHelper,
+  updatePoisonHelper,
+} from './playerReducerHelpers';
+import {
   SET_PLAYERS,
   UPDATE_POISON,
   UPDATE_LIFE,
@@ -37,52 +42,14 @@ export default (state, action) => {
     // Used in: Poison component
     case UPDATE_POISON:
       const { playerPoison, poison } = action.payload;
-      if (playerPoison === 'p1') {
-        const { poisonCounters } = state.p1;
-        if (poison === -1 && poisonCounters <= 0) {
-          return { ...state };
-        }
-        return {
-          ...state,
-          p1: { ...state.p1, poisonCounters: poisonCounters + poison },
-        };
-      } else if (playerPoison === 'p2') {
-        const { poisonCounters } = state.p2;
-        if (poison === -1 && poisonCounters <= 0) {
-          return { ...state };
-        }
-        return {
-          ...state,
-          p2: { ...state.p2, poisonCounters: poisonCounters + poison },
-        };
-      }
+      return updatePoisonHelper(playerPoison, poison, state);
 
     // Updates player life to display to user
     // Also keeps track of lifeHistory - the amount of life change that spans within 2 seconds of an initial change
     // Used in: LifeCalculator
     case UPDATE_LIFE:
       const { playerLife, lifeChange } = action.payload;
-      if (playerLife === 'p1') {
-        const { totalLife, lifeHistory } = state.p1;
-        return {
-          ...state,
-          p1: {
-            ...state.p1,
-            totalLife: totalLife + lifeChange,
-            lifeHistory: lifeHistory + lifeChange,
-          },
-        };
-      } else if (playerLife === 'p2') {
-        const { totalLife, lifeHistory } = state.p2;
-        return {
-          ...state,
-          p2: {
-            ...state.p2,
-            totalLife: totalLife + lifeChange,
-            lifeHistory: lifeHistory + lifeChange,
-          },
-        };
-      }
+      return updateLifeHelper(playerLife, lifeChange, state);
 
     // Adds the lifeHistory to the array and resets it to 0
     // Since this fires off every time a heart button is clicked, it needs to check if lifeHistory is 0
@@ -92,29 +59,7 @@ export default (state, action) => {
     //Used in: LifeCalculator
     case UPDATE_LIFE_ARRAY:
       const { playerArray } = action.payload;
-      if (playerArray === 'p1') {
-        const { lifeArray, lifeHistory } = state.p1;
-        return {
-          ...state,
-          p1: {
-            ...state.p1,
-            lifeArray:
-              lifeHistory !== 0 ? [...lifeArray, lifeHistory] : [...lifeArray],
-            lifeHistory: 0,
-          },
-        };
-      } else if (playerArray === 'p2') {
-        const { lifeArray, lifeHistory } = state.p2;
-        return {
-          ...state,
-          p2: {
-            ...state.p2,
-            lifeArray:
-              lifeHistory !== 0 ? [...lifeArray, lifeHistory] : [...lifeArray],
-            lifeHistory: 0,
-          },
-        };
-      }
+      return updateLifeArrayHelper([playerArray], state);
 
     // Handles the "Cannot Win" and "Cannot Lose" states
     //Used in: LifeCalculator

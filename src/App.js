@@ -8,23 +8,27 @@ import LifeCalculator from './components/LifeCalculator';
 import Timer from './components/Timer';
 import TimeStopper from './components/TimeStopper';
 import Results from './components/Results';
+import { Container } from './components/styles/Container.styled';
+import { StyledBottom } from './components/styles/Bottom.styled';
+import { GlobalStyles } from './components/styles/Global';
 
 function App() {
   return (
-    <div className='container-fluid main '>
+    <Container>
+      <GlobalStyles />
       <PlayerState>
         <Header />
         <PlayerInfo />
         <LifeTracker />
         <Poison />
         <LifeCalculator />
-        <div className='row bottom'>
+        <StyledBottom>
           <Timer />
           <Results />
-        </div>
-        <TimeStopper />
+          <TimeStopper />
+        </StyledBottom>
       </PlayerState>
-    </div>
+    </Container>
   );
 }
 

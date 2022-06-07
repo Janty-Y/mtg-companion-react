@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import PlayerContext from '../context/playerContext';
+import { StyledPoison } from './styles/Poison.styles';
 
 const Poison = () => {
   const { p1, p2, updatePoison, checkForWinner } = useContext(PlayerContext);
@@ -16,7 +17,7 @@ const Poison = () => {
   }, [p1, p2]);
 
   return (
-    <div className='row'>
+    <StyledPoison>
       <div className='col  poison'>
         POISON COUNTERS <i className='fas fa-skull-crossbones'> </i> <hr />
         <button
@@ -53,7 +54,7 @@ const Poison = () => {
           onClick={handlePoison}
         ></button>
       </div>
-    </div>
+    </StyledPoison>
   );
 };
 

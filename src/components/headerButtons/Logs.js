@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { StyledLogIcons } from '../styles/ViewLogIcons.styled';
 
 const Logs = () => {
   const [show, setShow] = useState(false);
@@ -21,22 +22,24 @@ const Logs = () => {
               const { p1Log, p2Log, duration, results } = match;
               return (
                 <span key={i}>
-                  {p1Log.playerName} vs {p2Log.playerName} <br />
-                  {p1Log.deckName} - {p2Log.deckName}
-                  <br />
-                  {p1Log.totalLife}
-                  <i className='fas fa-heart heart-log-icon' />
-                  {p2Log.totalLife}
-                  <br />
-                  {p1Log.poisonCounters}
-                  <i className='fas fa-skull-crossbones poison-icon' />
-                  {p2Log.poisonCounters}
-                  <br />
-                  {results} <br />
-                  Duration: {duration}
-                  <br />
-                  <hr />
-                  <br />
+                  <StyledLogIcons>
+                    {p1Log.playerName} vs {p2Log.playerName} <br />
+                    {p1Log.deckName} - {p2Log.deckName}
+                    <br />
+                    {p1Log.totalLife}
+                    <i className='fas fa-heart heart-log-icon' />
+                    {p2Log.totalLife}
+                    <br />
+                    {p1Log.poisonCounters}
+                    <i className='fas fa-skull-crossbones poison-icon' />
+                    {p2Log.poisonCounters}
+                    <br />
+                    {results} <br />
+                    Duration: {duration}
+                    <br />
+                    <hr />
+                    <br />
+                  </StyledLogIcons>
                 </span>
               );
             })
